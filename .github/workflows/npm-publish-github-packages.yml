@@ -1,44 +1,18 @@
-name: Demo
+name: WebApp
 
 on:
-  workflow_dispatch
-  
+  push: 
+    branches: [main]
+  pull_request:
+    branches: [main]
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Run a one-line script 
-        run: echo Hello, world!
-      
-  deploy-develop:
-    runs-on: ubuntu-latest
-    environment: 
-      name: develop
-      url: 'https://www.google.com/'
-    needs: build
-    steps:     
-      - name: Run a multi-line script
-        run: | 
-          echo develop deploy
-          
-  deploy-staging:
-    runs-on: ubuntu-latest
-    environment: 
-      name: staging
-      url: 'https://www.google.com/'
-    needs: deploy-develop
-    steps:     
-      - name: Run a multi-line script
-        run: | 
-          echo staging deploy
-        
-  deploy-production:
-    runs-on: ubuntu-latest
-    environment: 
-      name: production
-      url: 'https://www.google.com/'
-    needs: deploy-staging
-    steps:     
-      - name: Run a multi-line script
-        run: | 
-          echo production deploy
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 10
+      - run: npm ci
+      - run: npm run build --if-present
