@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: 
       name: develop
-      url: 'teste.com.br'
+      url: 'google.com'
     needs: build
     steps:     
       - name: Run a multi-line script
@@ -25,7 +25,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: 
       name: staging
-      url: 'teste.com.br'
+      url: 'google.com'
     needs: deploy-develop
     steps:     
       - name: Run a multi-line script
@@ -36,7 +36,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: 
       name: production
-      url: 'teste.com.br'
+      url: 'google.com'
     needs: deploy-staging
     steps:     
       - name: Run a multi-line script
