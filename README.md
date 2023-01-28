@@ -7,7 +7,7 @@
 ```http
   GET /
 ```
-#### Retorna um item
+#### Retorna Hello Mars
 
 ```http
   GET /mars
