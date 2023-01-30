@@ -23,7 +23,7 @@ jobs:
     environment: 
       name: develop
       url: 'https://www.google.com'
-    needs: build
+    needs: tests
     steps:     
       - name: Run a multi-line script
         run: | 
