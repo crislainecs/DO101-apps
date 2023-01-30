@@ -5,6 +5,11 @@ app.get('/', function(req, res){
     res.send('Hello World!\n)');
 })
 
+app.get('/me', function(req, res){
+    res.send('Meu nome é Raul');
+})
+
+
 app.get('/mars', function(req,res){
     res.send('Hello Mars!\n');
 });
